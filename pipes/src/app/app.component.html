@@ -1,4 +1,23 @@
 <div class="container">
-  <h2>{{title}}</h2>
-  <p>{{e | number}}</p>
+  <h2>{{ title }}</h2>
+  <!--<p>{{ str | uppercase | lowercase | titlecase | slice:0: 5 }}</p>
+  <p>{{ date | date:'EEE, LLL-dd, y of GGG, hh:mm a' }}</p>
+  <hr>
+  <p>{{ float | currency}}</p>
+  <p>{{ float | multiply:10 }}</p>
+  <p>{{ float | percent: '2.0-1' }}</p>
+  <p>{{'Hello    its me' | exMarks}}</p>-->
+  <!--<input type="text" [(ngModel)]="search">
+  <button class="btn" (click)="searchField='title'">Title</button>
+  <button class="btn" (click)="searchField='text'">Text</button>
+  <button class="btn" (click)="addPost()">Add Post</button>
+  <div
+    class="card"
+    *ngFor="let p of posts | filter:searchField:search"
+  >
+    <h2>{{p.title}}</h2>
+    <p>{{p.text}}</p>
+  </div>-->
+  <p>Wait for it... {{ p | async }}</p>
+
 </div>
