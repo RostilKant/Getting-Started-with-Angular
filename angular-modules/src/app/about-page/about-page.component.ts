@@ -2,8 +2,7 @@ import {Component} from '@angular/core';
 
 @Component({
     selector: 'app-about-page',
-    templateUrl: './about-page.component.html',
-    styles: []
+    templateUrl: './about-page.component.html'
 })
 export class AboutPageComponent {
     read = false;
