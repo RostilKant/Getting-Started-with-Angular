@@ -82,7 +82,7 @@
     ],
     "semicolon": {
       "options": [
-        "always"
+        "never"
       ]
     },
     "space-before-function-paren": {
@@ -95,9 +95,9 @@
       }
     },
     "typedef": [
-      true,
-      "call-signature"
+      true
     ],
+    "no-trailing-whitespace": false,
     "typedef-whitespace": {
       "options": [
         {
