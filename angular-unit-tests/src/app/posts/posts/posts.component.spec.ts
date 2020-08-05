@@ -41,7 +41,7 @@ describe('PostsComponent', () => {
     
     it('should set message to Error', () => {
         const error = 'test error'
-        const spy = spyOn(service, 'create').and.returnValue(throwError(error))
+        spyOn(service, 'create').and.returnValue(throwError(error))
         
         component.add('Post title')
         
