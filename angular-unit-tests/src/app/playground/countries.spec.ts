@@ -1,6 +1,6 @@
 import {countries} from './countries'
 
-describe('countries', () => {
+xdescribe('countries', () => {
     
     it('should contain countries codes', () => {
         const result = countries()

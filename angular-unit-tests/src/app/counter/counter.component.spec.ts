@@ -1,42 +1,58 @@
 import {CounterComponent} from './counter.component'
-import {FormBuilder} from '@angular/forms'
+import {ComponentFixture, TestBed} from '@angular/core/testing'
+import {By} from '@angular/platform-browser'
 
-describe('CounterComponent', () => {
+xdescribe('CounterComponent', () => {
+    let fixture: ComponentFixture<CounterComponent>
     let component: CounterComponent
     
     beforeEach(() => {
-        component = new CounterComponent(new FormBuilder())
+        TestBed.configureTestingModule({
+            declarations: [CounterComponent]
+        })
+        fixture = TestBed.createComponent(CounterComponent)
+        component = fixture.componentInstance
     })
     
-    it('should increment counter by 1', () => {
-        component.increment()
+    xit('should be created', () => {
+        expect(component).toBeDefined()
+    })
+    
+    xit('should render counter prop', () => {
+        const num = 42
+        component.counter = num
+        
+        fixture.detectChanges()
+        
+        const de = fixture.debugElement.query(By.css('.counter'))
+        const el: HTMLElement = de.nativeElement
+        
+        expect(el.textContent).toContain(num.toString())
+    })
+    
+    xit('should add green class of counter is even', () => {
+        component.counter = 6
+        
+        fixture.detectChanges()
+    
+        const de = fixture.debugElement.query(By.css('.counter'))
+        const el: HTMLElement = de.nativeElement
+        
+        expect(el.classList.contains('green')).toBeTruthy()
+    })
+    
+    xit('should increment counter if button "Increment" is clicked', () => {
+        const btn  = fixture.debugElement.query(By.css('#increment'))
+        btn.triggerEventHandler('click', null)
+        
         expect(component.counter).toBe(1)
     })
     
-    it('should decrement counter by 1', () => {
-        component.decrement()
+    xit('should decrement counter if button "Decrement" is clicked', () => {
+        const btn  = fixture.debugElement.query(By.css('#decrement'))
+        btn.triggerEventHandler('click', null)
+        
         expect(component.counter).toBe(-1)
-    })
-    
-    it('should increment counter by event emitter', () => {
-        let result = null
-        component.counterEmitter.subscribe(v => {result = v})
-        
-        component.increment()
-        
-        expect(result).toBe(1)
-    })
-    
-    it('should create form two controls', () => {
-        expect(component.form.contains('login')).toBeTruthy()
-        expect(component.form.contains('email')).toBeTruthy()
-    })
-    
-    it('should mark login as invalid if empty value',  () => {
-        const control = component.form.get('login')
-        control.setValue('')
-        
-        expect(control.valid).toBeFalsy()
     })
     
 })
