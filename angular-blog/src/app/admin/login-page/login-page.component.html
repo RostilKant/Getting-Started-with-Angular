@@ -1,6 +1,14 @@
 <form class="card" [formGroup]="form" (ngSubmit)="submit()">
     <h2>Administrator login</h2>
 
+    <div class="alert alert-danger" *ngIf="error | async as returnedError">
+        {{returnedError}}
+    </div>
+
+    <div class="alert alert-info" *ngIf="message">
+        {{message}}
+    </div>
+
     <div
         [ngClass]="{invalid: form.get('email').touched && form.get('email').invalid}"
         class="form-control"

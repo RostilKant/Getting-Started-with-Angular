@@ -14,6 +14,10 @@ export class AdminLayoutComponent{
         private auth: AuthService
     ) { }
     
+    isAuthenticated(): boolean{
+        return this.auth.isAuthenticated()
+    }
+    
     logout(event: Event): void {
         event.preventDefault()
         this.auth.logout()
