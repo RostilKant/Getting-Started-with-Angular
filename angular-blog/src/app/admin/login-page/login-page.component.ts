@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {AuthService} from '../../shared/services/auth.service';
+import {AuthService} from '../shared/services/auth.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {User} from '../../shared/interfaces';
 
@@ -25,6 +25,8 @@ export class LoginPageComponent implements OnInit {
         this.route.queryParams.subscribe((params) => {
             if(params.loginAgain){
                 this.message = 'Please, input all credentials'
+            } else if(params.authFailed) {
+                this.message = 'Session is expired, please re-login'
             }
         })
         
