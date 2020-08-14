@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import {NgModule, Provider} from '@angular/core';
+import {registerLocaleData} from '@angular/common';
+import deLocale from '@angular/common/locales/de';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,11 +13,14 @@ import {SharedModule} from './shared/shared.module';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import {AuthInterceptor} from './shared/auth.interceptor';
 
+registerLocaleData(deLocale, 'de')
+
 const INTERCEPTOR: Provider = {
     provide: HTTP_INTERCEPTORS,
     multi: true,
     useClass: AuthInterceptor
 }
+
 
 @NgModule({
     declarations: [
